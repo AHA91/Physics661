@@ -52,21 +52,15 @@ print('y =',Y)
 
 ###################### Part 4 ###########################
 
-u = np.array([[1,2,3],[1,2,3],[1,2,3]])       # Vector  u
-v = np.array([[1,2,3],[1,2,3],[1,2,3]])       # Vector v
-
-
-G = len(u)                                                 
-s = []                                                         # s is an emtpy list
-for i in range(G):                                     # i runs through the range of  G
-    if i == 0:
-        j,k = 1,2                                            # elements of vectors
-        s.append(u[j]*v[k] - u[k]*v[j])        # Multipling and subracting elements of interest and appends to empty list
-    elif i == 1:
-        j,k = 2,0
-        s.append(u[j]*v[k] - u[k]*v[j])
-    else:
-        j,k = 0,1
-        s.append(u[j]*v[k] - u[k]*v[j])
-print(' Cross Product = ', s)
-
+u = [[1,2,3],[1,2,3],[1,2,3]]                   
+v = [[1,2,3],[1,2,3],[1,2,3]]       
+D = u
+B = 0
+for i in range(len(u)):                              
+    for j in range(len(v[1])):
+        for n in range(len(v[1])):
+            B += u[i][n]*v[n][j]
+        D[i][j] = B
+        B=0
+    
+print("Product u*v =", D)
