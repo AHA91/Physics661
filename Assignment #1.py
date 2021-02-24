@@ -24,13 +24,12 @@ print("Magnitue |v| =", M)
 
 ####################### Part 2 #########################
 
-a = np.array([1,1,1,1,1])           # Vector a
-b = np.array([1,1,1,1,1])          # Vector b
-
-for i in range(len(a)):                  #  i will loop through as many elements as A has
-    for j in range(len(b)):             #  j will loop through as many elements as B has
-        M = a*b
-
+a = np.array([2,5,4,3,7])           # Vector a
+b = np.array([2,4,5,6,7])          # Vector b
+M = []
+for i in range(len(a)):              #  i will loop through as many elements as A has                                              
+    M.append (a[i]*b[i])
+    
 S = np.sum(M)  
         
 print('Scalar Product:', S)
