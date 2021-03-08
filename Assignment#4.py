@@ -40,9 +40,9 @@ def SCM(f,x0,x1,Itter):
     itr = 0
     while itr < Itter:
         x2 = x1 - f(x1)*((x1-x0)/(f(x1)-f(x0)))
+        print('Iteration %d: x2 = %0.3f, f(x2) = %0.3f' % (itr, x2, f(x2)))
         x0 = x1
         x1 = x2
-        print('Iteration %d: x2 = %0.3f, f(x2) = %0.3f' % (itr, x2, f(x2)))
         itr = itr + 1
         if f(x2) == 0.000:
             print('\n Required root is: %0.3f' % x2)
