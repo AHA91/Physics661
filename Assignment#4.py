@@ -26,7 +26,7 @@ def NRM(f,x0,Itter):
     itr = 0
     while itr < Itter:
         x_ = x0 - (f.subs(x,x0).evalf())/(df.subs(x,x0).evalf())
-        print('Iteration '+ str(itr) + ": "+'%.3f %.3f' % (x_, f.subs(x_,x)))
+        print('Iteration %d: x = %0.3f, f(x) = %0.3f' % (itr, x_, f.subs(x, x_)))
         x0 = x_
         itr = itr + 1
         if f.subs(x_,x) == 0.000:
