@@ -37,20 +37,22 @@ def NRM(f,x0,Itter):
 
 ############### Part 3 ##################
 
-def SCM(f,x0,x1,Itter, tol = 10**(-5)):
-    print(f(x0))
-    while Itter != 0:
-        if f(x0) - f(x1) == 0:
-            print("Hi")
+def SCM(f,x0,x1,itter, tol = 10**(-5)): 
+    itr = 0
+    while itr < itter:
+        if f(x0).evalf() - f(x1).evalf() == 0:
+            print("\n Divide by Zero Encountered")
+            print('\n Closest required root is: %0.3f' % x2)
             break
-        x2 = x1 - f(x1)*((x1-x0)/(f(x1)-f(x0)))
-        print('Iteration %d: x2 = %0.3f, f(x2) = %0.3f' % (itter, x2, f(x2)))
+        x2 = x1 - ((f(x1).evalf()*(x1-x0))/(f(x1).evalf()-f(x0).evalf()))
+        print('Iteration %d: x2 = %0.3f, f(x2) = %0.3f' % (itr, x2, f(x2)))
         if f(x2) == tol:
             print('\n Required root is: %0.3f' % x2)
             break
         x0 = x1
         x1 = x2
-        itter = itter - 1
+        itr = itr + 1
+
 
     
     
