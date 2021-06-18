@@ -34,12 +34,19 @@ def Orbit(x0,y0,vx0,vy0,m1,m2,G,t_,dt):
     L = vx*np.sqrt(x**2+y**2)
     E = (1/2)*m1*(np.sqrt(vx**2+vy**2))**2-G*m1*m2/(np.sqrt(x**2+y**2))
     
-    fig, (ax1, ax2, ax3) = plt.subplots(3)
-
+   fig, (ax1, ax2, ax3) = plt.subplots(3)
+    '''
     ax1.plot(x,y)
     ax1.set_title('Orbit')
     ax1.set_xlabel('x')
     ax1.set_ylabel('y')
+    '''
+    camera = Camera(fig)
+    for i in range(len(x)):
+        ax1.plot(x,y, color = 'Blue')
+        ax1.plot(x[i],y[i],'o', color = "Green")
+        camera.snap()
+    animation = camera.animate()
 
     ax2.plot(t,L)
     ax2.set_xlabel('time')
@@ -48,8 +55,7 @@ def Orbit(x0,y0,vx0,vy0,m1,m2,G,t_,dt):
     ax3.plot(t,E)
     ax3.set_xlabel('time')
     ax3.set_ylabel('Total Energy')
-
-
+    
     plt.show()
 
         
